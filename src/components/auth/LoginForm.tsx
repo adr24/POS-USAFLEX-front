@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useAuthStore } from '../../stores';
 
 
 import { toast } from 'sonner';
@@ -8,6 +9,12 @@ import { Button, Input } from '@nextui-org/react'
 export const LoginForm = () => {
     
     
+    // const login = useAuthStore((state) => {
+    //     return state.login;
+    // });
+
+    const login = useAuthStore( state => state.login );
+
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -19,9 +26,6 @@ export const LoginForm = () => {
 
         const { email, password } = e.target as HTMLFormElement;
         
-        // console.log(email.value, password.value);
-
-
         if( email.value.trim() === '' || password.value.trim() === ''){
             toast.error('Todos los campos son obligatorios')
             setIsLoading(false);
@@ -30,9 +34,9 @@ export const LoginForm = () => {
 
 
         // TODO: STORE DEL AUTH
-
+        await login( email.value, password.value );
+        
         setIsLoading(false);
-
 
     }
     
