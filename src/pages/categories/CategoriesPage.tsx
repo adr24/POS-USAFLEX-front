@@ -1,6 +1,17 @@
+import { HeaderPage } from "../../components"
 
 export const CategoriesPage = () => {
     return (
-        <div>CategoriesPage</div>
+        <>
+            <HeaderPage
+                btnPath="/admin/categories/new"
+                btnTitle="Nueva categoría"
+                title="Categorías"
+                description="Gestion de categorias de productos"
+            />
+        
+            
+        
+        </>
     )
 }
