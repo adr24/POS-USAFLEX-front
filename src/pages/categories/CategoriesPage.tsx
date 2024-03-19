@@ -1,6 +1,13 @@
-import { HeaderPage } from "../../components"
+
+import { CategoriesTable, HeaderPage } from "../../components"
+
+
 
 export const CategoriesPage = () => {
+
+
+
+
     return (
         <>
             <HeaderPage
@@ -9,8 +16,9 @@ export const CategoriesPage = () => {
                 title="Categorías"
                 description="Gestion de categorias de productos"
             />
-        
-            
+
+            <CategoriesTable/>
+   
         
         </>
     )
