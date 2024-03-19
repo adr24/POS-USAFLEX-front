@@ -1,10 +1,34 @@
-
-import { Outlet } from "react-router-dom"
-import { Toaster } from 'sonner'
 import Logo from '../../assets/logo.svg'
+
+import { Toaster } from 'sonner'
+import { Navigate, Outlet } from "react-router-dom"
+
+import { useAuthStore } from "../../stores"
+import { CircularProgress } from "@nextui-org/react"
 
 
 export const AuthLayout = () => {
+
+    const authStatus = useAuthStore(state => state.authStatus);
+    const checkAuthStatus = useAuthStore(state => state.checkAuthStatus);
+
+    if( authStatus === 'pending' ){
+
+        checkAuthStatus();
+
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center">
+                <p>Cargando...</p>
+                <CircularProgress/>
+            </div>
+        )
+    }
+
+    if( authStatus === 'auth' ){
+        return <Navigate  to='/admin/categories' />
+    }
+
+
     return (
         <>
             <Toaster
