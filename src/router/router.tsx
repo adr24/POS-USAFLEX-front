@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "../App";
 import { AuthLayout, RootLayout } from "../layouts";
-import { CategoriesPage, LoginPage } from "../pages";
+import { CategoriesPage, LoginPage, NewCategoryPage } from "../pages";
 
 
 export const router = createBrowserRouter([
@@ -19,6 +19,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'categories',
                         element: <CategoriesPage/>
+                    },
+                    {
+                        path: 'categories/new',
+                        element: <NewCategoryPage/>
                     }
                 ]
             },

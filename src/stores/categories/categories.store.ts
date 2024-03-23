@@ -13,6 +13,7 @@ interface CategoryState {
 interface Actions {
     getCategories: ( token: string ) => Promise<void>;
     deleteCategory: (id: string | number, token: string) => Promise<void>;
+    createCategory: (name: string, description: string, token: string) => Promise<void>;
     updateCategory: ( id:string | number, name: string, description: string, token: string ) => Promise<void>;
 }
 
@@ -81,7 +82,38 @@ const storeApi: StateCreator<CategoryState & Actions> = (set, get) => ({
                 })
             }
         }
+    },
+
+    createCategory: async ( name, description, token ) => {
+        const getCategories = get().getCategories;
+
+
+        try {
+            const { data } = await inventoryDb.post<{ message: string }>('/categories', {
+                name,
+                description
+            }, {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            })
+
+
+            toast.success('Guardado con exito',{ description: data.message });
+            await getCategories(token);
+            
+        } catch (error) {
+            console.log(error);
+
+            if( isAxiosError(error) ){
+                toast.error('Ocurrio un error', {
+                    description: error.response?.data.message
+                })
+            }
+        }
     }
+
+
 
 })
 
