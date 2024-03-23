@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "../App";
 import { AuthLayout, RootLayout } from "../layouts";
-import { CategoriesPage, LoginPage, NewCategoryPage } from "../pages";
+import { CategoriesPage, LoginPage, NewCategoryPage, NewProductPage, ProductsPage } from "../pages";
 
 
 export const router = createBrowserRouter([
@@ -23,7 +23,15 @@ export const router = createBrowserRouter([
                     {
                         path: 'categories/new',
                         element: <NewCategoryPage/>
-                    }
+                    },
+                    {
+                        path: 'products',
+                        element: <ProductsPage/>
+                    },
+                    {
+                        path: 'products/new',
+                        element: <NewProductPage/>
+                    },
                 ]
             },
 
