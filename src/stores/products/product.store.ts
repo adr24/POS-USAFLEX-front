@@ -18,9 +18,10 @@ interface Actions {
         token: string
     ) => Promise<void>;
 
-
-
     getProducts: ( token: string ) => Promise<void>;
+    deleteProduct: (id: string | number, token: string) => Promise<void>;
+
+
 }
 
 const storeApi: StateCreator<ProductState & Actions> = (set, get) => ({
@@ -78,9 +79,29 @@ const storeApi: StateCreator<ProductState & Actions> = (set, get) => ({
             }
 
         }
+    },
 
+    deleteProduct: async (id: string | number, token: string) => {
+        const getProducts = get().getProducts;
 
+        try {
+            const { data } = await inventoryDb.delete(`/products/${id}`, {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            });
+            toast.success(data.message);
+            getProducts(token);
 
+        } catch (error) {
+            console.log(error);
+
+            if( isAxiosError(error) ){
+                toast.error('Ocurrio un error', {
+                    description: error.response?.data.message
+                })
+            }
+        }
     }
 
 })

@@ -1,3 +1,4 @@
+export type { IFullProduct, IFullProductResponse } from './products/full-product';
 export type { ICreateProductResponse } from './products/create-product-response';
 export type { IProductsResponse } from './products/products-response';
 export type { IProduct } from './products/product';

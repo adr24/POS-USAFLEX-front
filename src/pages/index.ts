@@ -1,3 +1,5 @@
+export { ProductPage } from "./products/ProductPage";
+
 export { NewProductPage } from "./products/NewProductPage";
 
 export { ProductsPage } from "./products/ProductsPage";

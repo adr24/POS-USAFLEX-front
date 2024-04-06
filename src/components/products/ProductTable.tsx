@@ -4,6 +4,7 @@ import { formatDate } from '../../lib'
 import { useAuthStore, useProductStore } from '../../stores'
 
 import { CircularProgress, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
+import { ProductTableActions } from './ProductTableActions';
 
 export const ProductTable = () => {
 
@@ -65,7 +66,7 @@ export const ProductTable = () => {
                                 <TableCell>{product.stock}</TableCell>
                                 <TableCell>{ formatDate( product.createdAt ) }</TableCell>
                                 <TableCell>
-                                    asd
+                                    <ProductTableActions product={ product } />
                                 </TableCell>
                             </TableRow>
                         ))
