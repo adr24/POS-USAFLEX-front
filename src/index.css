@@ -75,7 +75,7 @@
     }
 
     .product__card {
-        @apply bg-stone-900 max-w-[250px] p-4 rounded-md
+        @apply bg-stone-950 max-w-[250px] p-4 rounded-md
     }
 
     .cart__item {

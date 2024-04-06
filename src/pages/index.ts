@@ -1,3 +1,6 @@
+export { CartPage } from "./cart/CartPage";
+export { CheckoutPage } from "./cart/CheckoutPage";
+
 export { ProductPage } from "./products/ProductPage";
 
 export { NewProductPage } from "./products/NewProductPage";

@@ -1,3 +1,8 @@
+export { CartList } from "./cart/CartList";
+export { CheckoutForm } from './cart/CheckoutForm';
+
+export { ProductList } from "./products/ProductList";
+
 export { NewProductForm } from "./products/NewProductForm";
 
 export { ProductTable } from "./products/ProductTable";
