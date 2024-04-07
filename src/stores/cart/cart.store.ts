@@ -11,6 +11,7 @@ interface CartState {
 
 interface Actions {
     calcTotal: () => void;
+    cleanCart: () => void;
     incrementQuantity: (id: number) => void;
     decrementQuantity: (id: number) => void;
     removeProductToCart: (id: number) => void;
@@ -49,6 +50,7 @@ const storeApi: StateCreator<CartState & Actions> = (set, get) => ({
                         quantity: 1,
                         price: product.price,
                         image: product.image,
+                        slug: product.slug
                     }
                 ]
             });
@@ -96,7 +98,7 @@ const storeApi: StateCreator<CartState & Actions> = (set, get) => ({
         set({
             cart: updatedCartProducts
         })
-        calcTotal
+        calcTotal()
 
     },
 
@@ -108,7 +110,12 @@ const storeApi: StateCreator<CartState & Actions> = (set, get) => ({
         set({ cart: updatedCartProducts });
         calcTotal();
 
+    },
+
+    cleanCart: () => {
+        set({ cart: [], total: 0 });
     }
+
 })
 
 

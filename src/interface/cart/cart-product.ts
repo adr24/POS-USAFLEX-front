@@ -3,5 +3,6 @@ export interface ICartProduct {
     name: string;
     image: string | null;
     quantity: number;
+    slug: string;
     price: number | string;
 }
