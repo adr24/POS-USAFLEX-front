@@ -3,13 +3,15 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "../App";
 import { AuthLayout, RootLayout } from "../layouts";
-import { CartPage, CategoriesPage, CheckoutPage, LoginPage, NewCategoryPage, NewProductPage, ProductPage, ProductsPage } from "../pages";
+import { CartPage, CategoriesPage, CheckoutPage, LoginPage, NewCategoryPage, NewProductPage, ProductPage, ProductsPage, SalesPage } from "../pages";
+import { ErrorView } from "../components";
 
 
 export const router = createBrowserRouter([
     {
         element: <App/>,
         path: '/',
+        errorElement: <ErrorView/>,
         children: [
             // RUTAS DASHBOARD
             {
@@ -43,6 +45,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'checkout',
                         element: <CheckoutPage/>
+                    },
+                    {
+                        path: 'sales',
+                        element: <SalesPage/>
                     },
                 ]
             },

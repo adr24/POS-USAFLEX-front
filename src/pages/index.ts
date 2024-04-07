@@ -1,3 +1,5 @@
+export { SalesPage } from "./sales/SalesPage";
+
 export { CartPage } from "./cart/CartPage";
 export { CheckoutPage } from "./cart/CheckoutPage";
 

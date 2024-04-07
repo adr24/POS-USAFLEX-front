@@ -1,3 +1,7 @@
+export { SaleTable } from "./sales/SaleTable";
+
+export { ErrorView } from "./ui/ErrorView";
+
 export { CartList } from "./cart/CartList";
 export { CheckoutForm } from './cart/CheckoutForm';
 

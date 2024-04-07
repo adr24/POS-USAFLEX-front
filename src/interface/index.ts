@@ -1,3 +1,4 @@
+export type { ISale, ISalesResponse } from './sales/sales-response';
 export type { ICartProduct } from './cart/cart-product';
 export type { IFullProduct, IFullProductResponse } from './products/full-product';
 export type { ICreateProductResponse } from './products/create-product-response';
